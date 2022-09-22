@@ -5,6 +5,10 @@ import org.apache.http.HttpStatus;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 封装Web返回对象
+ * 统一封装返回给客户端的数据
+ */
 public class R extends HashMap<String, Object> {
 
     public R() {

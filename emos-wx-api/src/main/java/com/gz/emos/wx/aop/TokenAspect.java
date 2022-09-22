@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * AOP切面类 ，拦截所有Web方法返回的 R对象,
+ * 然后在 R对象 里面添加 新令牌
  * @author: GZ
  * @date: 2022/9/17 14:11
  */

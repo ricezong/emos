@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 拦截Http请求，验证Token
+ * 因为在 OAuth2Filter 类中要读写 ThreadLocal 中的数据，所以 OAuth2Filter 类必
+ * 须要设置成多例的，否则 ThreadLocal 将无法使用
  * @author: GZ
  * @date: 2022/9/16 15:20
  */
@@ -79,7 +82,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
 
         threadLocalToken.clear();
-
+        //获取请求token，如果token不存在，直接返回401
         String token = getRequestToken(request);
         if (StrUtil.isBlank(token)) {
             response.setStatus(HttpStatus.SC_UNAUTHORIZED);
@@ -90,12 +93,14 @@ public class OAuth2Filter extends AuthenticatingFilter {
             //验证令牌有效性
             jwtUtil.verifierToken(token);
         } catch (TokenExpiredException e) {
-            //判断redis中是否含有令牌，有的话重新生成本地令牌
+            //客户端令牌过期，查询Redis中是否存在令牌，如果存在令牌就重新生成一个令牌给客户端
             if (redisTemplate.hasKey(token)) {
                 redisTemplate.delete(token);
                 int userId = jwtUtil.getUserId(token);
                 token = jwtUtil.createToken(userId);
+                //把新的令牌保存到Redis中
                 redisTemplate.opsForValue().set(token, String.valueOf(userId), cacheExpire, TimeUnit.DAYS);
+                //把新令牌绑定到线程
                 threadLocalToken.setToken(token);
             } else {
                 //如果Redis不存在令牌，让用户重新登录

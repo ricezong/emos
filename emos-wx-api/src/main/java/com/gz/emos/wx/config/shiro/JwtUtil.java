@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * JWT工具类，用来 加密Token 和 验证Token 的有效性
+ */
 @Component
 @Slf4j
 public class JwtUtil {
@@ -58,6 +61,7 @@ public class JwtUtil {
      * @param token
      */
     public void verifierToken(String token){
+        //创建加密算法对象
         Algorithm algorithm=Algorithm.HMAC256(secret);
         JWTVerifier jwtVerifier=JWT.require(algorithm).build();
         jwtVerifier.verify(token);

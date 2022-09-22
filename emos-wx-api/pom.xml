@@ -18,10 +18,11 @@
         <springfox.version>3.0.0</springfox.version>
         <bootstrap.version>1.9.6</bootstrap.version>
         <hutool.version>5.8.6</hutool.version>
+        <commons-lang3.version>3.11</commons-lang3.version>
         <fastjson.version>2.0.13</fastjson.version>
         <shiro.version>1.9.1</shiro.version>
         <jwt.version>4.0.0</jwt.version>
-        <aspectj.version>1.9.9.1</aspectj.version>
+        <httpcore.version>4.4.14</httpcore.version>
     </properties>
     <dependencies>
         <!--RabbitMQ驱动-->
@@ -95,6 +96,7 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
+            <version>${httpcore.version}</version>
         </dependency>
         <!-- Swagger3依赖 -->
         <dependency>
@@ -108,7 +110,7 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>${bootstrap.version}</version>
         </dependency>
-        <!--验证字段-->
+        <!--验证数据-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
@@ -118,6 +120,11 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <!-- 阿里JSON解析器 -->
         <dependency>
@@ -147,16 +154,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
-        <!--aspect配置-->
+        <!--切面配置-->
         <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

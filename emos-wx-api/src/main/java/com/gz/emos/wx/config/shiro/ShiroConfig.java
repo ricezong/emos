@@ -14,6 +14,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * 把设置应用到Shiro框架
+ * 把 OAuth2Filter 和 OAuth2Realm 配置到Shiro框架
  * @author: GZ
  * @date: 2022/9/17 13:17
  */

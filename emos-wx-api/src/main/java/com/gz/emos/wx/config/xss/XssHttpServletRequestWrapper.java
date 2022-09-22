@@ -17,6 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * 定义请求包装类
  * @author: GZ
  * @date: 2022/9/9 16:38
  */
