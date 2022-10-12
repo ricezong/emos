@@ -1,4 +1,4 @@
-package com.gz.emos.wx.common.utils;
+package com.gz.emos.wx.common;
 
 import org.apache.http.HttpStatus;
 

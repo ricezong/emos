@@ -1,6 +1,6 @@
 package com.gz.emos.wx.aop;
 
-import com.gz.emos.wx.common.utils.R;
+import com.gz.emos.wx.common.R;
 import com.gz.emos.wx.config.shiro.ThreadLocalToken;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

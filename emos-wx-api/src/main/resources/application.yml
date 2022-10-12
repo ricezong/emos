@@ -33,7 +33,7 @@ spring:
   #redis配置
   redis:
     database: 0
-    host: 8.136.15.64
+    host: 101.43.246.132
     port: 6379
     password: 123456
     jedis:
@@ -45,7 +45,7 @@ spring:
   #mongodb配置
   data:
     mongodb:
-      host: 8.136.15.64
+      host: 101.43.246.132
       port: 27017
       database: emos
       authentication-database: admin
@@ -72,4 +72,9 @@ emos:
     secret: abc123456 #密钥
     expire: 5         #令牌过期时间（天）
     cache-expire: 10  #令牌缓存时间（天）
+
+#定义微信小程序id和密钥
+wx:
+  app-id: wx5a4fea469a375629
+  app-secret: 5916081991beb6335aa7b18e3f48606b
 
