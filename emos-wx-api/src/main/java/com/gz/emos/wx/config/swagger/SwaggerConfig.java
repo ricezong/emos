@@ -1,6 +1,6 @@
 package com.gz.emos.wx.config.swagger;
 
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -24,7 +24,7 @@ public class SwaggerConfig {
      * swagger各种配置信息存到docket对象中
      * 创建API
      * http:IP:端口号/swagger-ui/index.html 原生地址
-     * http:IP:端口号/doc.html bootStrap-UI地址
+     * http:IP:端口号/doc.html Knife4j地址
      *
      * @return
      */
@@ -42,7 +42,7 @@ public class SwaggerConfig {
         //所有包下的所有类
         selectorBuilder.paths(PathSelectors.any());
         //可访问方法，使用@ApiOperation的方法会被提取到REST API中
-        selectorBuilder.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class));
+        selectorBuilder.apis(RequestHandlerSelectors.withMethodAnnotation(Operation.class));
         docket = selectorBuilder.build();
         /**
          * 下面的语句是开启对JWT的支持，当用户用Swagger调用受JWT认证保护的方法，

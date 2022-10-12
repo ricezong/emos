@@ -18,6 +18,7 @@ import java.util.Map;
 
 /**
  * 定义请求包装类
+ *
  * @author: GZ
  * @date: 2022/9/9 16:38
  */
@@ -102,16 +103,13 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         for (String key : map.keySet()) {
             Object value = map.get(key);
             if (value instanceof String) {
-                if (StrUtil.isEmpty(value.toString())) {
-                    result.put(key, HtmlUtil.filter(value.toString()));
-                }
-            }
-            else {
-                result.put(key,value);
+                result.put(key, HtmlUtil.filter(value.toString()));
+            } else {
+                result.put(key, value);
             }
         }
         String s = JSONObject.toJSONString(result);
-        ByteArrayInputStream stream=new ByteArrayInputStream(s.getBytes());
+        ByteArrayInputStream stream = new ByteArrayInputStream(s.getBytes());
         return new ServletInputStream() {
             @Override
             public boolean isFinished() {

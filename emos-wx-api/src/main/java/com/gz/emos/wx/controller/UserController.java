@@ -5,8 +5,8 @@ import com.gz.emos.wx.common.utils.RedisUtil;
 import com.gz.emos.wx.config.shiro.JwtUtil;
 import com.gz.emos.wx.service.TbUserService;
 import com.gz.emos.wx.vo.RegisterFormVO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +23,7 @@ import java.util.Set;
  */
 @RestController
 @RequestMapping("/user")
-@Api(tags = {"用户模块Web接口"})
+@Tag(name = "用户模块")
 public class UserController {
 
     @Autowired
@@ -39,7 +39,7 @@ public class UserController {
     private long cacheExpire;
 
     @PostMapping("/register")
-    @ApiOperation("注册用户")
+    @Operation(summary = "注册用户")
     public R register(@Valid @RequestBody RegisterFormVO formVO) {
         int userId = userService.registerUser(formVO.getRegisterCode(), formVO.getCode(), formVO.getNickName(), formVO.getPhoto());
         String token = jwtUtil.createToken(userId);

@@ -16,7 +16,7 @@
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <druid.version>1.2.12</druid.version>
         <springfox.version>3.0.0</springfox.version>
-        <bootstrap.version>1.9.6</bootstrap.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <hutool.version>5.8.6</hutool.version>
         <commons-lang3.version>3.11</commons-lang3.version>
         <fastjson.version>2.0.13</fastjson.version>
@@ -104,13 +104,13 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>${springfox.version}</version>
         </dependency>
-        <!-- 引入swagger-bootstrap-ui包 -->
+        <!-- 引入knife4j优化swagger体验 -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
-            <version>${bootstrap.version}</version>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
-        <!--验证数据-->
+        <!--校验字段-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
