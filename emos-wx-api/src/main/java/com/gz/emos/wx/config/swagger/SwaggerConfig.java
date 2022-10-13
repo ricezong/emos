@@ -41,7 +41,7 @@ public class SwaggerConfig {
         ApiSelectorBuilder selectorBuilder = docket.select();
         //所有包下的所有类
         selectorBuilder.paths(PathSelectors.any());
-        //可访问方法，使用@ApiOperation的方法会被提取到REST API中
+        //可访问方法，使用@Operation的方法会被提取到REST API中
         selectorBuilder.apis(RequestHandlerSelectors.withMethodAnnotation(Operation.class));
         docket = selectorBuilder.build();
         /**
