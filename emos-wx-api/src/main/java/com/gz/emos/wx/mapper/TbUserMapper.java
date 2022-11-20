@@ -18,9 +18,12 @@ public interface TbUserMapper extends BaseMapper<TbUser> {
 
     int insert(HashMap<String,Object> param);
 
+    //sql如果没有查询到结果会返回空值，这里返回类型用Integer是因为int不能保存空值
     Integer searchIdByOpenId(String openId);
 
     Set<String> searchUserPermissions(int userId);
+
+    TbUser searchById(int userId);
 }
 
 

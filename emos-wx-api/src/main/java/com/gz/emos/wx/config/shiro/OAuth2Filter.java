@@ -108,7 +108,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
                 response.getWriter().print("令牌已过期，请重新登录");
                 return false;
             }
-        } catch (JWTDecodeException e) {
+        } catch (Exception e) {
             response.setStatus(HttpStatus.SC_UNAUTHORIZED);
             response.getWriter().print("无效的令牌");
             return false;

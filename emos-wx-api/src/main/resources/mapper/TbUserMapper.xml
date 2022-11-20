@@ -52,6 +52,14 @@
           AND u.status = 1;
     </select>
 
+    <select id="searchById" parameterType="int" resultType="com.gz.emos.wx.domain.TbUser">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tb_user
+        WHERE id = #{userId}
+        AND status = 1
+    </select>
+
     <insert id="insert" parameterType="hashmap">
         INSERT INTO tb_user
         SET

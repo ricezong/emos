@@ -10,4 +10,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface TbCheckinService extends IService<TbCheckin> {
 
+    /**
+     * 判断当日是否可以签到
+     * @param userId
+     * @param date
+     * @return
+     */
+    String validCanCheckIn(int userId,String date);
+
 }

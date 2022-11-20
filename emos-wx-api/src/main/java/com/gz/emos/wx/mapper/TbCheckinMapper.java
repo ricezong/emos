@@ -3,6 +3,8 @@ package com.gz.emos.wx.mapper;
 import com.gz.emos.wx.domain.TbCheckin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.HashMap;
+
 /**
 * @author zong
 * @description 针对表【tb_checkin(签到表)】的数据库操作Mapper
@@ -10,6 +12,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.gz.emos.wx.domain.TbCheckin
 */
 public interface TbCheckinMapper extends BaseMapper<TbCheckin> {
+
+    Integer haveCheckin(HashMap<String,String> map);
 
 }
 

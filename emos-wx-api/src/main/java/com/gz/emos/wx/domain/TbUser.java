@@ -19,7 +19,7 @@ public class TbUser implements Serializable {
      * 主键
      */
     @TableId(type = IdType.AUTO)
-    private Object id;
+    private Integer id;
 
     /**
      * 长期授权字符串

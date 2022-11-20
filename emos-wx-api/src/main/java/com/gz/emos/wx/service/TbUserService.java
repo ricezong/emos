@@ -29,4 +29,18 @@ public interface TbUserService extends IService<TbUser> {
      */
     Set<String> searchUserPermissions(int userId);
 
+    /**
+     * 用户登录
+     * @param code 微信临时授权码
+     * @return
+     */
+    Integer login(String code);
+
+    /**
+     * 通过id查询用户信息
+     * @param userId
+     * @return
+     */
+    TbUser searchById(int userId);
+
 }

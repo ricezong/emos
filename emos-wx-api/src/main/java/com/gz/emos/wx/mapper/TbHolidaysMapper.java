@@ -11,6 +11,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface TbHolidaysMapper extends BaseMapper<TbHolidays> {
 
+    Integer searchTodayIsHolidays();
+
 }
 
 
